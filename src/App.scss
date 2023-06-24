@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --posX: 0;
+  --posY: 0;
+  
+  --color-header: black;
+  --color-text: blue;
+}
+
+
+body {
+  
+  /* background-image: url(../public/img/work/mainbg.png);  */
+  position: relative;
+  font-family: "Poppins", sans-serif;
+} 
+
+::selection {
+  background-color: #38947ebb;
+}
+
+main {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.logo{
+  width: 50px;
+}
+
+header{
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  padding: 0.5rem 0;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+header nav {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul{
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+header ul span{
+  text-decoration: none;
+  color: #fff;
+  /* font-weight:400; */
+  padding: 0 1.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 0.83rem;
+}
+
+.search span {
+  font-size: 1.05rem;
+  padding: 0 3rem;
+}
+
+.hamburger {
+  padding-left: 1.5rem;
+}
+
+.hamburger span {
+  padding: 0;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  border-radius: 50%;
+  background-color: rgba(115, 115, 115, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger .bar{
+  position: relative;
+  width: 52%;
+  height: 1.3px;
+  background-color: #fff;
+  border-radius: 3px;
+  
+}
+
+.hamburger .bar::before, 
+.hamburger .bar::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 60%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 2px;
+}
+
+.hamburger .bar::before{
+  top: -4.5px;
+}
+
+.hamburger .bar::after{
+  top: 4.5px;
+}
+
+.parallax {
+  &__container {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &__mainbg2 {
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-image: url("../public/mainbg2.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__TLbg {
+    position: absolute;
+    z-index: 1;
+    width: 1920px;
+    height: 1080px;
+    top: 40px;
+    left: 5.5%;
+    background-image: url("../public/TLbg.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 1px), calc(var(--posY) * 1px));
+  }
+
+  &__fogbgR {
+    position: absolute;
+    z-index: 2;
+    width: 750px;
+    height: 700px;
+    top: 18%;
+    left: 0.5%;
+    background-image: url("../public/fogbgR.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 2px), calc(var(--posY) * 2px));
+  }
+
+  &__FatM {
+    position: absolute;
+    z-index: 4;
+    height: 1080px;
+    width: 1300px;
+    top: 7%;
+    left: 33%;
+    background-image: url("../public/FatM.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 0.8px), calc(var(--posY) * 0.8px));
+  }
+  
+  &__fogMbg2 {
+    position: absolute;
+    z-index: 4;
+    width: 800px;
+    height: 500px;
+    top: 9%;
+    left: 23%;
+    background-image: url("../public/fogMbg2.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 1.3px), calc(var(--posY) * 1.3px));
+  }
+  
+  &__MRbg {
+    position: absolute;
+    z-index: 4;
+    height: 1080px;
+    width: 1800px;
+    top: 1%;
+    left: -4%;
+    background-image: url("../public/MRbg.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 1.2px), calc(var(--posY) * 1.2px));
+  }
+ 
+  
+  &__Rbg {
+    position: absolute;
+    z-index: 3;
+    height: 1080px;
+    width: 1920px;
+    top: -1%;
+    left: -1.5%;
+    background-image: url("../public/Rbg.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 0.7px), calc(var(--posY) * 0.7px));
+  }
+  
+  &__fogMbg {
+    position: absolute;
+    z-index: 5;
+    width: 500px;
+    height: 350px;
+    top: 30%;
+    left: 51.5%;
+    background-image: url("../public/fogMbg.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 1px), calc(var(--posY) * 1px));
+  }
+  
+  &__midleR {
+    position: absolute;
+    z-index: 6;
+    height: 800px;
+    width: 800px;
+    top: 45.5%;
+    left: 42%;
+    background-image: url("../public/midleR.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 1.5px), calc(var(--posY) * 1.5px));
+  }
+  
+  &__MRT {
+    position: absolute;
+    z-index: 11;
+    height: 1000px;
+    width: 800px;
+    top: 23%;
+    left: 55%;
+    background-image: url("../public/MRT.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 2.3px), calc(var(--posY) * 2.3px));
+  }
+
+  &__text {
+    position: absolute;
+    z-index: 4;
+    top: 29%;
+    left: 26%;
+    text-align: center;
+    text-transform: uppercase;
+    pointer-events: auto;
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-weight: 100;
+    font-size: 6.5rem;
+    line-height: 0.88;
+    transform: translate(calc(var(--posX) * 3px), calc(var(--posY) * 1px));
+  }
+
+  @media (max-width: 725px) {
+    &__text {
+      font-size: 5rem;
+      left: 20%;
+      top: 33%;
+    }
+  }
+  
+  &__MRTall {
+    position: absolute;
+    z-index: 4;
+    height: 1000px;
+    width: 1000px;
+    top: 2%;
+    left: 0%;
+    background-image: url("../public/MRTall.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 1.4px), calc(var(--posY) * 1.4px));
+  }
+
+  &__text-two {
+    position: absolute;
+    z-index: 6;
+    top: 45%;
+    left: 39%;
+    text-align: center;
+    text-transform: uppercase;
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    pointer-events: auto;
+    color: #fff;
+    font-weight: 100;
+    font-size: 6.5rem;
+    line-height: 0.88;
+    transform: translate(calc(var(--posX) * 3px), calc(var(--posY) * 1px));
+  }
+
+  @media (max-width: 725px) {
+    &__text-two {
+      top: 44%;
+      left: 45%;
+      font-size: 5rem;
+      line-height: 1.1;
+    }
+  }
+
+  &__fogLbg3 {
+    position: absolute;
+    z-index: 5;
+    height: 1080px;
+    width: 1400px;
+    top: 45%;
+    left: 27%;
+    background-image: url("../public/fogLbg.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 4px), calc(var(--posY) * 4px));
+  }
+  
+  
+  &__fogLbg {
+    position: absolute;
+    z-index: 5;
+    height: 1100px;
+    width: 1100px;
+    top: 23.3%;
+    left: 4%;
+    background-image: url("../public/fogLbg.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 2px), calc(var(--posY) * 2px));
+  }
+  
+  &__LSmall {
+    position: absolute;
+    z-index: 6;
+    height: 1080px;
+    width: 1040px;
+    top: 7%;
+    left: 26%;
+    background-image: url("../public/LSmall.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 2px), calc(var(--posY) * 2px));
+  }
+  
+  &__fogMbgL {
+    position: absolute;
+    z-index: 7;
+    height: 540px;
+    width: 750px;
+    top: 54%;
+    left: 10%;
+    background-image: url("../public/fogMbgL.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 5px), calc(var(--posY) * 5px));
+  }
+  
+  &__LTF {
+    position: absolute;
+    z-index: 14;
+    height: 1080px;
+    width: 880px;
+    top: -5%;
+    left: -1%;
+    background-image: url("../public/LTF.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 2px), calc(var(--posY) * 2px));
+  }
+  
+  &__fogLfg {
+    position: absolute;
+    z-index: 15;
+    height: 1080px;
+    width: 960px;
+    top: 2%;
+    left: -2%;
+    background-image: url("../public/fogLfg.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 3px), calc(var(--posY) * 3px));
+  }
+  
+  &__Tall-cut{
+    position: absolute;
+    z-index: 10;
+    height: 900px;
+    width: 800px;
+    top: 31%;
+    left: 1.5%;
+    background-image: url("../public/Tall-cut.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 2.5px), calc(var(--posY) * 2.5px));
+  }
+  
+  &__fogL {
+    position: absolute;
+    z-index: 11;
+    height: 1080px;
+    width: 800px;
+    top: 12%;
+    left: 2%;
+    background-image: url("../public/fogL.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 5px), calc(var(--posY) * 5px));
+  }
+  
+  &__MTcut {
+    position: absolute;
+    z-index: 13;
+    height: 1000px;
+    width: 1580px;
+    top: 24%;
+    left: 23%;
+    background-image: url("../public/MTcut.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 3.5px), calc(var(--posY) * 3.5px));
+  }
+
+  &__RT {
+    position: absolute;
+      z-index: 10;
+      height: 800px;
+      top: 29%;
+      left: 26%;
+      right: -2%;
+      background-image: url("../public/RT.png");
+      background-size: cover;
+      display: flex;
+      background-repeat: no-repeat;
+      transform: translate(calc(var(--posX) * 3px), calc(var(--posY) * 4px));
+    }
+
+  &__fogRfg {
+    position: absolute;
+    z-index: 11;
+    height: 1000px;
+    width: 810px;
+    top: 0%;
+    left: 60%;
+    background-image: url("../public/fogRfg.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 6px), calc(var(--posY) * 6px));
+  }
+  
+  &__black-shadow {
+    position: absolute;
+    z-index: 20;
+    width: 1920px;
+    height: 1080px;
+    top: 20%;
+    pointer-events: none;
+    background-image: url("../public/black_shadow.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 1px), calc(var(--posY) * 1px));
+  }
+
+  &__sun_rays {
+    position: absolute;
+    z-index: 21;
+    width: 1000px;
+    height: 500px;
+    top: 0%;
+    left: 50%;
+    pointer-events: none;
+    background-image: url("../public/sun_rays.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 1px), calc(var(--posY) * 1px));
+  }
+
+  &__Fgfog {
+    position: absolute;
+    z-index: 21;
+    width: 2000px;
+    height: 1080px;
+    top: 28%;
+    left: -4%;
+    pointer-events: none;
+    background-image: url("../public/Fgfog.png");
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    transform: translate(calc(var(--posX) * 5px), calc(var(--posY) * 5px));
+  }
+
+  
+}
+  @media (max-width: 725px) {
+    header nav {
+      padding: 0 1rem;
+    }
+
+    .logo {
+      width: 50px;
+    }
+
+    header ul span {
+      font-size: 0.85rem;
+      padding: 0 1.9rem;
+    }
+
+    .hamburger {
+      padding-left: 2rem;
+    }
+
+    .hamburger span {
+      height: 35px;
+      width: 35px;
+    }
+  }
